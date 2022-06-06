@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>updateClientes</title>
+</head>
+<body>
+<div>
+  <form action="#" th:action="@{/practica/saveClientes(update=${intupdate})}" th:object="${clientes}" method="post">
+    <p th:if="${update}"><label>Id:</label><input type="text" th:field="*{id}" readonly></p>
+    <p><label>Nombres:</label><input type="text" th:field="*{nombres}"></p>
+    <p><label>Apellidos:</label><input type="text" th:field="*{apellidos}"></p>
+    <p><label>Email:</label><input type="text" th:field="*{email}"></p>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+<div th:if="${error}">
+
+        <p th:text="${error}"></p>
+
+</div>
+</body>
+</html>

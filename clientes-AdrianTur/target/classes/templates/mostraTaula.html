@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>mostraTaula</title>
+</head>
+<body>
+
+<div th:each="clientes: ${client}" th:unless="${client.isEmpty()}">
+
+    <div>
+        <p th:text="${clientes.nombres}"></p>
+        <p th:text="${clientes.apellidos}"></p>
+        <p th:text="${clientes.email}"></p>
+        <a th:href="@{updateClientes(idClientes=${clientes.id})}"><button>Update Clientes</button></a>
+        <a th:href="@{delete(idClientes=${clientes.id})}"><button type="button">Borrar Clientes</button></a>
+    </div>
+</div>
+
+<div th:if="${client.isEmpty()}"><p>La taula està buida</p></div>
+
+<a th:href="@{insertClientes}"><button th:text="${insert}">Update Clientes</button></a>
+
+</body>
+</html>
